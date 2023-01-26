@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc && vite build",
+    "prebuild": "yarn type-check",
+    "build": "vite build",
     "dev": "vite",
     "lint": "yarn lint:format && yarn lint:fix ",
     "lint:fix": "eslint . --ext .js,.ts,.tsx --fix --max-warnings 0",
