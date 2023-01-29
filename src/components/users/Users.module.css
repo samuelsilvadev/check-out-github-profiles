@@ -1,0 +1,31 @@
+.wrapper {
+  --cards-per-column: 2;
+  --card-width: 50%;
+  --grid-gap: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(var(--cards-per-column), var(--card-width));
+  gap: var(--grid-gap);
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    --cards-per-column: 3;
+    --card-width: 200px;
+    --grid-gap: 33px;
+  }
+}
+
+@media (min-width: 960px) {
+  .wrapper {
+    --cards-per-column: 4;
+    --grid-gap: 15px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .wrapper {
+    --cards-per-column: 6;
+  }
+}

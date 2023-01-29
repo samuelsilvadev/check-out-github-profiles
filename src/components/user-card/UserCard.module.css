@@ -1,0 +1,12 @@
+.wrapper {
+  border: 3px solid var(--colors-primary);
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  margin-top: 10px;
+}

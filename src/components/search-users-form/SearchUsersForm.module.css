@@ -1,6 +1,6 @@
 .form {
   display: flex;
-  height: 100px;
+  flex-direction: column;
   gap: 10px;
 }
 
@@ -8,6 +8,7 @@
   flex-grow: 1;
   font-size: 32px;
   padding: 0 20px;
+  height: 80px;
 }
 
 .submitButton {
@@ -26,4 +27,15 @@
 .submitButton:focus {
   background-color: var(--colors-secondary);
   color: var(--colors-primary);
+}
+
+@media (min-width: 768px) {
+  .form {
+    flex-direction: row;
+    height: 100px;
+  }
+
+  .userNameInput {
+    height: 100%;
+  }
 }
