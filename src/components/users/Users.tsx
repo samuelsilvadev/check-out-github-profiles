@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import UserCard from "~/components/user-card";
 import styles from "./Users.module.css";
 
@@ -16,7 +17,9 @@ function Users({ users = [], className = "" }: UsersProps) {
     <ul className={`${styles.wrapper} ${className}`}>
       {users.map(({ id, alt, src, name }) => (
         <li key={id}>
-          <UserCard image={{ alt, src }} userName={name} />
+          <Link to={`/user/${id}`} className={styles.link}>
+            <UserCard image={{ alt, src }} userName={name} />
+          </Link>
         </li>
       ))}
     </ul>
