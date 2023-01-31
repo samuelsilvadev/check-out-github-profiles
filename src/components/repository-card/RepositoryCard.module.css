@@ -1,0 +1,12 @@
+.wrapper {
+  border: 3px solid var(--colors-primary);
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  flex-shrink: 0;
+  padding-left: 20px;
+}

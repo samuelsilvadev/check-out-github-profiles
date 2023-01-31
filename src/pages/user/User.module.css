@@ -1,0 +1,39 @@
+.userDetails {
+  display: grid;
+  grid-template-columns: 100px 1fr 200px;
+  grid-template-rows: repeat(4, 25px);
+  align-items: center;
+  column-gap: 10px;
+  margin-bottom: 50px;
+  justify-items: flex-start;
+}
+
+.backButton,
+.avatar {
+  grid-row: 1 / -1;
+}
+
+.userInfo {
+  grid-column: 2 / 3;
+}
+
+.backButton {
+  background-color: var(--colors-primary);
+  padding: 20px 40px;
+  color: var(--colors-secondary);
+  grid-column: 3 / -1;
+  outline: none;
+  border: 3px solid var(--colors-primary);
+  justify-self: flex-end;
+  text-decoration: none;
+}
+
+.backButton:hover,
+.backButton:focus {
+  background-color: var(--colors-secondary);
+  color: var(--colors-primary);
+}
+
+.pagination {
+  margin-top: 20px;
+}

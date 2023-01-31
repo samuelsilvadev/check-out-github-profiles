@@ -22,6 +22,6 @@ describe("<App/>", () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByRole("heading", { name: "User" })).toBeVisible();
+    expect(screen.getByRole("heading", { name: "User Page" })).toBeVisible();
   });
 });

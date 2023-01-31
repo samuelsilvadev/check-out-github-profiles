@@ -1,3 +1,4 @@
+import Layout from "~/components/layout";
 import SearchUsersForm from "~/components/search-users-form";
 import Users, { type UsersProps } from "~/components/users";
 import styles from "./SearchUsers.module.css";
@@ -41,11 +42,10 @@ const users: UsersProps["users"] = [
 
 function SearchUsers() {
   return (
-    <section className={styles.wrapper}>
-      <h1 className={styles.title}>Search for github users</h1>
+    <Layout title="Search for github users">
       <SearchUsersForm onSearch={stubOnSearch} />
       <Users className={styles.usersList} users={users} />
-    </section>
+    </Layout>
   );
 }
 
