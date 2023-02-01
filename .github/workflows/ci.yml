@@ -1,0 +1,34 @@
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+name: continuous integration
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.19.0
+          cache: yarn
+
+      - name: install Dependencies
+        run: yarn install
+        shell: bash
+
+      - name: check types
+        run: yarn type-check
+        shell: bash
+
+      - name: lint
+        run: yarn lint
+        shell: bash
+
+      - name: tests
+        run: yarn test
+        shell: bash
