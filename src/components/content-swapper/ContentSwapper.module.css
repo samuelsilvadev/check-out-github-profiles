@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  margin: 50px 0;
+  border: 3px solid var(--colors-primary);
+  padding: 20px 0;
+}
+
+.retryButton {
+  background-color: var(--colors-primary);
+  padding: 20px 40px;
+  color: var(--colors-secondary);
+}
+
+.retryButton:hover,
+.retryButton:focus {
+  background-color: var(--colors-secondary);
+  color: var(--colors-primary);
+}

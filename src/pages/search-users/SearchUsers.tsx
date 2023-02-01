@@ -1,50 +1,46 @@
+import { useEffect, useState } from "react";
+import ContentSwapper from "~/components/content-swapper";
 import Layout from "~/components/layout";
-import SearchUsersForm from "~/components/search-users-form";
-import Users, { type UsersProps } from "~/components/users";
+import SearchUsersForm, {
+  type SearchUsersFormProps,
+} from "~/components/search-users-form";
+import Users from "~/components/users";
+import useFetch from "~/hooks/useFetch";
+import { searchUsers } from "~/services/github";
+import type { SearchUsersResponse } from "~/types/api";
 import styles from "./SearchUsers.module.css";
 
-// TODO: replace with final implementation
-const stubOnSearch = () => void 0;
-
-// TODO: replace with final implementation
-const users: UsersProps["users"] = [
-  {
-    id: "1",
-    name: "John",
-    src: "https://avatars.githubusercontent.com/u/1?v=4",
-    alt: "John's avatar",
-  },
-  {
-    id: "2",
-    name: "Jane",
-    src: "https://avatars.githubusercontent.com/u/2?v=4",
-    alt: "Jane's avatar",
-  },
-  {
-    id: "3",
-    name: "Luis",
-    src: "https://avatars.githubusercontent.com/u/3?v=4",
-    alt: "Luis's avatar",
-  },
-  {
-    id: "4",
-    name: "Sam",
-    src: "https://avatars.githubusercontent.com/u/4?v=4",
-    alt: "Sam's avatar",
-  },
-  {
-    id: "5",
-    name: "Mary",
-    src: "https://avatars.githubusercontent.com/u/5?v=4",
-    alt: "Mary's avatar",
-  },
-];
+export const DEFAULT_SEARCH_TERM = "*";
 
 function SearchUsers() {
+  const [searchTerm, setSearchTerm] = useState(DEFAULT_SEARCH_TERM);
+
+  const {
+    fetch: fetchUsers,
+    data,
+    error,
+    loaded,
+  } = useFetch<SearchUsersResponse, [string]>(searchUsers);
+  const isEmpty = loaded && data?.items.length === 0;
+
+  useEffect(() => {
+    fetchUsers(searchTerm);
+  }, [fetchUsers, searchTerm]);
+
+  const handleOnSearch: SearchUsersFormProps["onSearch"] = ({ searchTerm }) => {
+    setSearchTerm(searchTerm);
+  };
+
   return (
     <Layout title="Search for github users">
-      <SearchUsersForm onSearch={stubOnSearch} />
-      <Users className={styles.usersList} users={users} />
+      <SearchUsersForm onSearch={handleOnSearch} />
+      <ContentSwapper loading={!loaded} error={error}>
+        {isEmpty ? (
+          "No user found"
+        ) : (
+          <Users className={styles.usersList} users={data?.items} />
+        )}
+      </ContentSwapper>
     </Layout>
   );
 }

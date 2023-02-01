@@ -2,20 +2,19 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import LocationDebug from "~/tests/components/location-debug";
-import Users, { type UsersProps } from "./Users";
+import type { User } from "~/types/user";
+import Users from "./Users";
 
-const users: UsersProps["users"] = [
+const users: User[] = [
   {
-    id: "1",
-    name: "John",
-    src: "https://avatars.githubusercontent.com/u/1?v=4",
-    alt: "John's avatar",
+    id: 1,
+    login: "John",
+    avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
   },
   {
-    id: "2",
-    name: "Jane",
-    src: "https://avatars.githubusercontent.com/u/2?v=4",
-    alt: "Jane's avatar",
+    id: 2,
+    login: "Jane",
+    avatar_url: "https://avatars.githubusercontent.com/u/2?v=4",
   },
 ];
 
@@ -52,6 +51,8 @@ describe("<Users />", () => {
 
     userEvent.click(firstUser);
 
-    expect(screen.getByTestId("location-debug")).toHaveTextContent("/user/1");
+    expect(screen.getByTestId("location-debug")).toHaveTextContent(
+      "/user/John"
+    );
   });
 });

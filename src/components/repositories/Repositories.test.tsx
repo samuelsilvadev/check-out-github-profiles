@@ -3,16 +3,16 @@ import Repositories, { type RepositoriesProps } from "./Repositories";
 
 const repositories: RepositoriesProps["repositories"] = [
   {
-    id: "1",
+    id: 1,
     name: "repository-1",
     description: "description-1",
-    href: "http://github.com",
+    html_url: "http://github.com",
   },
   {
-    id: "2",
+    id: 2,
     name: "repository-2",
     description: "description-2",
-    href: "http://github.com",
+    html_url: "http://github.com",
   },
 ];
 

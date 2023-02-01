@@ -1,10 +1,9 @@
-import type { RepositoryCardProps } from "~/components/repository-card";
 import RepositoryCard from "~/components/repository-card";
+import type { Repository } from "~/types/repository";
 import styles from "./Repositories.module.css";
 
 export type RepositoriesProps = {
-  // TODO: create type for repositories
-  repositories: ({ id: string } & RepositoryCardProps)[];
+  repositories?: Repository[];
 };
 
 function Repositories({ repositories = [] }: RepositoriesProps) {
@@ -14,10 +13,14 @@ function Repositories({ repositories = [] }: RepositoriesProps) {
 
   return (
     <ul className={styles.wrapper}>
-      {repositories.map(({ id, ...repository }) => {
+      {repositories.map(({ id, name, description, html_url }) => {
         return (
           <li key={id}>
-            <RepositoryCard {...repository} />
+            <RepositoryCard
+              name={name}
+              href={html_url}
+              description={description || ""}
+            />
           </li>
         );
       })}

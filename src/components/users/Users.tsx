@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import UserCard from "~/components/user-card";
+import { User } from "~/types/user";
 import styles from "./Users.module.css";
 
 export type UsersProps = {
   className?: string;
-  // TODO: add a type for the user
-  users: { id: string; name: string; src: string; alt: string }[];
+  users?: User[];
 };
 
 function Users({ users = [], className = "" }: UsersProps) {
@@ -15,10 +15,13 @@ function Users({ users = [], className = "" }: UsersProps) {
 
   return (
     <ul className={`${styles.wrapper} ${className}`}>
-      {users.map(({ id, alt, src, name }) => (
+      {users.map(({ id, login, avatar_url }) => (
         <li key={id}>
-          <Link to={`/user/${id}`} className={styles.link}>
-            <UserCard image={{ alt, src }} userName={name} />
+          <Link to={`/user/${login}`} className={styles.link}>
+            <UserCard
+              image={{ alt: login, src: avatar_url }}
+              userName={login}
+            />
           </Link>
         </li>
       ))}
