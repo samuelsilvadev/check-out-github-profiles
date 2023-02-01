@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/samuelsilvadev/check-out-github-profiles/compare/v1.2.0...v1.2.1) (2023-02-01)
+
+
+### Bug Fixes
+
+* include `vercel` config to make SPA work on every route ([#7](https://github.com/samuelsilvadev/check-out-github-profiles/issues/7)) ([fa6db6c](https://github.com/samuelsilvadev/check-out-github-profiles/commit/fa6db6c042242e7c31249ec9678645f6458d2505))
+
 ## [1.2.0](https://github.com/samuelsilvadev/check-out-github-profiles/compare/v1.1.0...v1.2.0) (2023-02-01)
 
 
