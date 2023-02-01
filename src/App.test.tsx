@@ -44,4 +44,20 @@ describe("<App/>", () => {
 
     expect(screen.getByRole("heading", { name: "User Page" })).toBeVisible();
   });
+
+  test("renders <App /> on `not found` correctly", () => {
+    render(
+      <MemoryRouter initialEntries={["/not-found"]}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(
+      screen.getByRole("heading", {
+        name: "The content you are looking for was not found",
+      })
+    ).toBeVisible();
+    expect(screen.getByText("Let's return to the main page")).toBeVisible();
+    expect(screen.getByRole("link", { name: "Home" })).toBeVisible();
+  });
 });

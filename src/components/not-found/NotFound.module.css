@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  margin: 50vh auto 0;
+  border: 5px solid var(--colors-primary);
+  padding: 20px;
+  width: 70vw;
+  height: 50vh;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.link {
+  background-color: var(--colors-primary);
+  padding: 20px;
+  color: var(--colors-secondary);
+  outline: none;
+  border: 3px solid var(--colors-primary);
+  text-decoration: none;
+}
+
+.link:focus,
+.link:hover {
+  background-color: var(--colors-secondary);
+  color: var(--colors-primary);
+}
