@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/samuelsilvadev/check-out-github-profiles/compare/v1.1.0...v1.2.0) (2023-02-01)
+
+
+### Features
+
+* change favicon ([#5](https://github.com/samuelsilvadev/check-out-github-profiles/issues/5)) ([1dbfa57](https://github.com/samuelsilvadev/check-out-github-profiles/commit/1dbfa572f350154e08f441d57aa615ef62e2041c))
+
 ## [1.1.0](https://github.com/samuelsilvadev/check-out-github-profiles/compare/v1.0.0...v1.1.0) (2023-02-01)
 
 
