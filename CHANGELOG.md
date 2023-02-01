@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/samuelsilvadev/check-out-github-profiles/compare/v1.0.0...v1.1.0) (2023-02-01)
+
+
+### Features
+
+* add 404 support for unknown routes ([#3](https://github.com/samuelsilvadev/check-out-github-profiles/issues/3)) ([805ba83](https://github.com/samuelsilvadev/check-out-github-profiles/commit/805ba832985c2441235390038397753936d025c6))
+
 ## 1.0.0 (2023-02-01)
 
 
